@@ -22,18 +22,46 @@ public class Shooter : MonoBehaviour
     {
         Vector2 bulletPosition = new Vector2(transform.position.x, transform.position.y);
         int currentDistance = 0;
+        //Code to track the bullet (runs all in one frame)
         while (true)
         {
+
+            // Check the space to see if any switches are in the bullet's path
+            // If so, inform the switch's script and let it do it's thing
+            if (TileMover.checkSpace(bulletPosition + direction,"Switch") != true)
+            {
+                List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition+direction,"Switch");
+                foreach (Collider2D collider in colliders)
+                {
+                    collider.GetComponent<Switch>().hitSwitch();
+                }
+            }
+
+            if (TileMover.checkSpace(bulletPosition + direction,"Enemy") != true)
+            {
+                List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition+direction,"Enemy");
+                print("ded1");
+                foreach (Collider2D collider in colliders)
+                {
+                    collider.GetComponent<Enemy>().die(); // When you shoot enemy, he die
+                    print("ded");
+                }
+            }
+
+            // Make sure the bullet isn't going to go through a wall
+            // Runs after interactibles so that switches/enemies next to a wall don't die
+            // Also allows switches and enemies to function as bullet blockers
             if (TileMover.checkSpace(bulletPosition + direction,"BulletBlocker")) 
             {
                 bulletPosition += direction;
             }
             else
             {
-                print ($"Hit a wall at {bulletPosition}");
-                Instantiate(Boom,new Vector3(bulletPosition.x,bulletPosition.y,-2),Quaternion.identity);
+                Destroy(Instantiate(Boom,new Vector3(bulletPosition.x,bulletPosition.y,-2),Quaternion.identity),2f);
                 break;
             }
+
+            // Failsafe to make sure the loop ends eventually
             currentDistance += 1;
             if (currentDistance > maxDistance) {print("Hit Max Distance"); break;}
         }
