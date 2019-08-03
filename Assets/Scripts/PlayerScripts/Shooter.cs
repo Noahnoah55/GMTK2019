@@ -18,6 +18,7 @@ public class Shooter : MonoBehaviour
         
     }
 
+
     public void fireShot(Vector2 direction)
     {
         Vector2 bulletPosition = new Vector2(transform.position.x, transform.position.y);
@@ -52,7 +53,6 @@ public class Shooter : MonoBehaviour
             if (TileMover.checkSpace(bulletPosition + direction, "CurveRightUp") != true)
             {
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveRightUp");
-                print("Go up bitch");
                 if (direction == Vector2.right)
                 {
                     bulletPosition += direction;
@@ -62,6 +62,48 @@ public class Shooter : MonoBehaviour
                 {
                     bulletPosition += direction;
                     direction = Vector2.left;
+                }
+            }
+            if (TileMover.checkSpace(bulletPosition + direction, "CurveRightDown") != true)
+            {
+                List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveRightDown");
+                if (direction == Vector2.right)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.down;
+                }
+                else if (direction == Vector2.up)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.left;
+                }
+            }
+            if (TileMover.checkSpace(bulletPosition + direction, "CurveLeftUp") != true)
+            {
+                List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveLeftUp");
+                if (direction == Vector2.left)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.up;
+                }
+                else if (direction == Vector2.down)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.right;
+                }
+            }
+            if (TileMover.checkSpace(bulletPosition + direction, "CurveLeftDown") != true)
+            {
+                List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveLeftDown");
+                if (direction == Vector2.left)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.down;
+                }
+                else if (direction == Vector2.up)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.right;
                 }
             }
 
@@ -75,6 +117,7 @@ public class Shooter : MonoBehaviour
             else
             {
                 Destroy(Instantiate(Boom,new Vector3(bulletPosition.x,bulletPosition.y,-2),Quaternion.identity),2f);
+                Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity);
                 break;
             }
 
@@ -82,5 +125,11 @@ public class Shooter : MonoBehaviour
             currentDistance += 1;
             if (currentDistance > maxDistance) {print("Hit Max Distance"); break;}
         }
+        StopBullet(direction, bulletPosition);
+    }
+    public void StopBullet(Vector2 direction, Vector2 bulletPosition)
+    {
+        Destroy(Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity));
+        Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity);
     }
 }
