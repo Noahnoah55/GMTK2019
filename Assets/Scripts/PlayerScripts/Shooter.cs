@@ -128,8 +128,6 @@ public class Shooter : MonoBehaviour
             }
             else
             {
-                Destroy(Instantiate(Boom,new Vector3(bulletPosition.x,bulletPosition.y,-2),Quaternion.identity),2f);
-                Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity);
                 break;
             }
 
@@ -137,12 +135,13 @@ public class Shooter : MonoBehaviour
             currentDistance += 1;
             if (currentDistance > maxDistance) {print("Hit Max Distance"); break;}
         }
-        StopBullet(direction, bulletPosition,trail);
+        hiteffect(direction,bulletPosition,trail);
     }
-    public void StopBullet(Vector2 direction, Vector2 bulletPosition, List<Vector2> trail)
+    public void hiteffect(Vector2 direction, Vector2 bulletPosition, List<Vector2> trail)
     {
         Destroy(Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity),1f);
         GameObject tempTrailObj = Instantiate(TrailObj,Vector3.zero,Quaternion.identity);
         tempTrailObj.GetComponent<TrailGen>().drawtrail(trail);
+        Destroy(tempTrailObj,1f);
     }
 }
