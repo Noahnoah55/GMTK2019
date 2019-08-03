@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
             if (GetComponent<TileMover>().attemptMove(direction))
             {
                 GetComponent<Facer>().changeFace(direction);
+                GetComponent<SoundManager>().playsound("step");
             }
             lastDirection = direction;
         }

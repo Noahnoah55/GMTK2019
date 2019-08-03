@@ -23,6 +23,7 @@ public class AmmoHolder : MonoBehaviour
         {
         isCarryingAmmo = false; 
         GetComponent<Shooter>().fireShot(direction);
+        GetComponent<SoundManager>().playsound("clap");
         }
     }
 
