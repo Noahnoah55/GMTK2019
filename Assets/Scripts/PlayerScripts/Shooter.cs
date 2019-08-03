@@ -8,6 +8,7 @@ public class Shooter : MonoBehaviour
     public GameObject Boom;
     public GameObject BPickup;
     public int maxDistance = 100;
+    public GameObject[] Enemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -143,5 +144,8 @@ public class Shooter : MonoBehaviour
         tempTrailObj.GetComponent<TrailGen>().drawtrail(trail);
         Destroy(tempTrailObj,1f);
         Instantiate(BPickup,bulletPosition,Quaternion.identity);
+
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        print(Enemies.Length);
     }
 }

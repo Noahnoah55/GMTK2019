@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Blocker
   - CurveRightUp
+  - Enemy
   layers:
   - Default
   - TransparentFX

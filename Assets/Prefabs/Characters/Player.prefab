@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7413724654063694288}
   - component: {fileID: 7413724654063694295}
   - component: {fileID: 567885463323750788}
+  - component: {fileID: 1444178013860289835}
+  - component: {fileID: 7299940717139645684}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,6 +128,7 @@ MonoBehaviour:
   Boom: {fileID: 3155997480497175212, guid: b57ae3040f6318c4fae54ba7c0a9d0fc, type: 3}
   BPickup: {fileID: 3604808973390948292, guid: 0b831855ce6fae84b8d2bd3e850731f7, type: 3}
   maxDistance: 100
+  Enemies: []
 --- !u!114 &7413724654063694295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +158,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCarryingAmmo: 1
+--- !u!114 &1444178013860289835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413724654063694298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8801cf58082904db968a69f42f5684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7299940717139645684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413724654063694298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8801cf58082904db968a69f42f5684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
