@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    public GameObject Boom;
     public int maxDistance = 100;
     // Start is called before the first frame update
     void Start()
@@ -23,13 +24,14 @@ public class Shooter : MonoBehaviour
         int currentDistance = 0;
         while (true)
         {
-            if (TileMover.checkSpace(bulletPosition,"BulletBlocker")) 
+            if (TileMover.checkSpace(bulletPosition + direction,"BulletBlocker")) 
             {
                 bulletPosition += direction;
             }
             else
             {
                 print ($"Hit a wall at {bulletPosition}");
+                Instantiate(Boom,new Vector3(bulletPosition.x,bulletPosition.y,-2),Quaternion.identity);
                 break;
             }
             currentDistance += 1;

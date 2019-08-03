@@ -28,7 +28,7 @@ public class TileMover : MonoBehaviour
         bool answer = true;
         foreach (Collider2D collision in collisions)
         {
-            if (Array.Exists(collision.GetComponent<Tagger>().tags, tag => tag == targetTag)){answer = true;}
+            if (Array.Exists(collision.GetComponent<Tagger>().tags, tag => tag == targetTag)){answer = false;}
         }
         return answer;
     }

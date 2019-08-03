@@ -132,7 +132,8 @@ GameObject:
   - component: {fileID: 330129708}
   - component: {fileID: 330129707}
   - component: {fileID: 330129706}
-  m_Layer: 8
+  - component: {fileID: 330129705}
+  m_Layer: 0
   m_Name: Foreground
   m_TagString: Blocker
   m_Icon: {fileID: 0}
@@ -153,6 +154,21 @@ Transform:
   m_Father: {fileID: 703026364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &330129705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330129703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7264f3c6c4b24a469648c1547edd79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - Blocker
+  - BulletBlocker
 --- !u!19719996 &330129706
 TilemapCollider2D:
   m_ObjectHideFlags: 0
