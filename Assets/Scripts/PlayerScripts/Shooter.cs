@@ -28,6 +28,7 @@ public class Shooter : MonoBehaviour
 
             // Check the space to see if any switches are in the bullet's path
             // If so, inform the switch's script and let it do it's thing
+            //!= true big gay inverse
             if (TileMover.checkSpace(bulletPosition + direction,"Switch") != true)
             {
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition+direction,"Switch");
@@ -45,6 +46,22 @@ public class Shooter : MonoBehaviour
                 {
                     collider.GetComponent<Enemy>().die(); // When you shoot enemy, he die
                     print("ded");
+                }
+            }
+
+            if (TileMover.checkSpace(bulletPosition + direction, "CurveRightUp") != true)
+            {
+                List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveRightUp");
+                print("Go up bitch");
+                if (direction == Vector2.right)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.up;
+                }
+                else if (direction == Vector2.down)
+                {
+                    bulletPosition += direction;
+                    direction = Vector2.left;
                 }
             }
 
