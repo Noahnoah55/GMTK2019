@@ -19,11 +19,15 @@ public class AmmoHolder : MonoBehaviour
 
     public void fireGun(Vector2 direction)
     {
-        if (isCarryingAmmo) {isCarryingAmmo = false; GetComponent<Shooter>().fireShot(direction);}
+        if (isCarryingAmmo)
+        {
+        isCarryingAmmo = false; 
+        GetComponent<Shooter>().fireShot(direction);
+        }
     }
 
     public void pickupAmmo()
     {
-        isCarryingAmmo = false;
+        isCarryingAmmo = true;
     }
 }

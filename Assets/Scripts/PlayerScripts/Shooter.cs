@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    public GameObject TrailObj;
     public GameObject Boom;
+    public GameObject BPickup;
     public int maxDistance = 100;
     // Start is called before the first frame update
     void Start()
@@ -21,12 +23,13 @@ public class Shooter : MonoBehaviour
 
     public void fireShot(Vector2 direction)
     {
+        List<Vector2> trail = new List<Vector2>();
         Vector2 bulletPosition = new Vector2(transform.position.x, transform.position.y);
         int currentDistance = 0;
         //Code to track the bullet (runs all in one frame)
         while (true)
         {
-
+            trail.Add(bulletPosition);
             // Check the space to see if any switches are in the bullet's path
             // If so, inform the switch's script and let it do it's thing
             //!= true big gay inverse
@@ -57,11 +60,13 @@ public class Shooter : MonoBehaviour
                 {
                     bulletPosition += direction;
                     direction = Vector2.up;
+                    trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.down)
                 {
                     bulletPosition += direction;
                     direction = Vector2.left;
+                    trail.Add(bulletPosition);
                 }
             }
             if (TileMover.checkSpace(bulletPosition + direction, "CurveRightDown") != true)
@@ -71,11 +76,13 @@ public class Shooter : MonoBehaviour
                 {
                     bulletPosition += direction;
                     direction = Vector2.down;
+                    trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.up)
                 {
                     bulletPosition += direction;
                     direction = Vector2.left;
+                    trail.Add(bulletPosition);
                 }
             }
             if (TileMover.checkSpace(bulletPosition + direction, "CurveLeftUp") != true)
@@ -85,11 +92,13 @@ public class Shooter : MonoBehaviour
                 {
                     bulletPosition += direction;
                     direction = Vector2.up;
+                    trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.down)
                 {
                     bulletPosition += direction;
                     direction = Vector2.right;
+                    trail.Add(bulletPosition);
                 }
             }
             if (TileMover.checkSpace(bulletPosition + direction, "CurveLeftDown") != true)
@@ -99,11 +108,13 @@ public class Shooter : MonoBehaviour
                 {
                     bulletPosition += direction;
                     direction = Vector2.down;
+                    trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.up)
                 {
                     bulletPosition += direction;
                     direction = Vector2.right;
+                    trail.Add(bulletPosition);
                 }
             }
 
@@ -116,8 +127,6 @@ public class Shooter : MonoBehaviour
             }
             else
             {
-                Destroy(Instantiate(Boom,new Vector3(bulletPosition.x,bulletPosition.y,-2),Quaternion.identity),2f);
-                Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity);
                 break;
             }
 
@@ -125,11 +134,14 @@ public class Shooter : MonoBehaviour
             currentDistance += 1;
             if (currentDistance > maxDistance) {print("Hit Max Distance"); break;}
         }
-        StopBullet(direction, bulletPosition);
+        hiteffect(direction,bulletPosition,trail);
     }
-    public void StopBullet(Vector2 direction, Vector2 bulletPosition)
+    public void hiteffect(Vector2 direction, Vector2 bulletPosition, List<Vector2> trail)
     {
-        Destroy(Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity));
-        Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity);
+        Destroy(Instantiate(Boom, new Vector3(bulletPosition.x, bulletPosition.y, -2), Quaternion.identity),1f);
+        GameObject tempTrailObj = Instantiate(TrailObj,Vector3.zero,Quaternion.identity);
+        tempTrailObj.GetComponent<TrailGen>().drawtrail(trail);
+        Destroy(tempTrailObj,1f);
+        Instantiate(BPickup,bulletPosition,Quaternion.identity);
     }
 }

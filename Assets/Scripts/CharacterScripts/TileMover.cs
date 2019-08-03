@@ -6,6 +6,7 @@ using UnityEngine;
 public class TileMover : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool isplayer = true;
     void Start()
     {
         
@@ -50,6 +51,12 @@ public class TileMover : MonoBehaviour
         if (checkMove(direction))
         {
             transform.Translate(direction);
+            if (checkSpace((Vector2)transform.position, "Pickup") == false)
+            {
+                
+                GetComponent<AmmoHolder>().pickupAmmo();
+                Destroy(getCollidersWithTag((Vector2)transform.position, "Pickup")[0].gameObject);
+            }
             return true;
         }
         else {return false;}
