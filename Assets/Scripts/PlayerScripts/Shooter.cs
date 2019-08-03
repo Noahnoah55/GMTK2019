@@ -29,6 +29,7 @@ public class Shooter : MonoBehaviour
         //Code to track the bullet (runs all in one frame)
         while (true)
         {
+            Vector2 olddir = direction;
             trail.Add(bulletPosition);
             // Check the space to see if any switches are in the bullet's path
             // If so, inform the switch's script and let it do it's thing
@@ -58,13 +59,11 @@ public class Shooter : MonoBehaviour
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveRightUp");
                 if (direction == Vector2.right)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.up;
                     trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.down)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.left;
                     trail.Add(bulletPosition);
                 }
@@ -74,13 +73,11 @@ public class Shooter : MonoBehaviour
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveRightDown");
                 if (direction == Vector2.right)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.down;
                     trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.up)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.left;
                     trail.Add(bulletPosition);
                 }
@@ -90,13 +87,11 @@ public class Shooter : MonoBehaviour
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveLeftUp");
                 if (direction == Vector2.left)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.up;
                     trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.down)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.right;
                     trail.Add(bulletPosition);
                 }
@@ -106,13 +101,11 @@ public class Shooter : MonoBehaviour
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition + direction, "CurveLeftDown");
                 if (direction == Vector2.left)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.down;
                     trail.Add(bulletPosition);
                 }
                 else if (direction == Vector2.up)
                 {
-                    bulletPosition += direction;
                     direction = Vector2.right;
                     trail.Add(bulletPosition);
                 }
@@ -123,7 +116,7 @@ public class Shooter : MonoBehaviour
             // Also allows switches and enemies to function as bullet blockers
             if (TileMover.checkSpace(bulletPosition + direction,"BulletBlocker")) 
             {
-                bulletPosition += direction;
+                bulletPosition += olddir;
             }
             else
             {
