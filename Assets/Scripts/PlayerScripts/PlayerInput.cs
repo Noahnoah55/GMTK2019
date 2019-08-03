@@ -26,7 +26,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown("space"))
         // TODO, change space to a button
         {
-            GetComponent<Shooter>().fireShot(lastDirection);
+            GetComponent<AmmoHolder>().fireGun(lastDirection);
         }
     }
 
