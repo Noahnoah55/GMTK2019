@@ -6,6 +6,7 @@ public class Shooter : MonoBehaviour
 {
     public GameObject TrailObj;
     public GameObject Boom;
+    public GameObject BPickup;
     public int maxDistance = 100;
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,6 @@ public class Shooter : MonoBehaviour
         while (true)
         {
             trail.Add(bulletPosition);
-            print(trail);
-            print(bulletPosition);
             // Check the space to see if any switches are in the bullet's path
             // If so, inform the switch's script and let it do it's thing
             //!= true big gay inverse
@@ -143,5 +142,6 @@ public class Shooter : MonoBehaviour
         GameObject tempTrailObj = Instantiate(TrailObj,Vector3.zero,Quaternion.identity);
         tempTrailObj.GetComponent<TrailGen>().drawtrail(trail);
         Destroy(tempTrailObj,1f);
+        Instantiate(BPickup,bulletPosition,Quaternion.identity);
     }
 }

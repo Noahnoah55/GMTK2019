@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2793b579368b4e4ea6a6d8213ba895a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isplayer: 1
 --- !u!114 &7413724654063694299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailObj: {fileID: 1479570778595808, guid: 9746220705facf143a36054eb6d570bc, type: 3}
   Boom: {fileID: 3155997480497175212, guid: b57ae3040f6318c4fae54ba7c0a9d0fc, type: 3}
+  BPickup: {fileID: 3604808973390948292, guid: 0b831855ce6fae84b8d2bd3e850731f7, type: 3}
   maxDistance: 100
 --- !u!114 &7413724654063694295
 MonoBehaviour:

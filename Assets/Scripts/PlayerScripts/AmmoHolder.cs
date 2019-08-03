@@ -28,6 +28,6 @@ public class AmmoHolder : MonoBehaviour
 
     public void pickupAmmo()
     {
-        isCarryingAmmo = false;
+        isCarryingAmmo = true;
     }
 }
