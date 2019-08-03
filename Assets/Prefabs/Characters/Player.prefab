@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6c15a1f02633445a4009d733badd58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrailObj: {fileID: 1479570778595808, guid: 9746220705facf143a36054eb6d570bc, type: 3}
   Boom: {fileID: 3155997480497175212, guid: b57ae3040f6318c4fae54ba7c0a9d0fc, type: 3}
   maxDistance: 100
 --- !u!114 &7413724654063694295
