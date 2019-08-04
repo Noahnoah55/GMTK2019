@@ -19,9 +19,9 @@ public class PlayerInput : MonoBehaviour
         {
             if (GetComponent<TileMover>().attemptMove(direction))
             {
-                GetComponent<Facer>().changeFace(direction);
                 GetComponent<SoundManager>().playsound("step");
             }
+            GetComponent<Facer>().changeFace(direction);
             lastDirection = direction;
         }
         if (Input.GetButtonDown("shoot"))
