@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuSlave : MonoBehaviour
 {
-    public string currentlevel;
     public GameObject eatshort;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +39,6 @@ public class MenuSlave : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(currentlevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
