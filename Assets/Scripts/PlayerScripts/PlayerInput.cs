@@ -30,11 +30,11 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetButtonDown("RotateRight"))
         {
-            GetComponent<Facer>().rotateFace(direction);
+            lastDirection = GetComponent<Facer>().rotateFace(lastDirection, "right");
         }
         if (Input.GetButtonDown("RotateLeft"))
         {
-            GetComponent<Facer>().changeFace(direction);
+            lastDirection = GetComponent<Facer>().rotateFace(lastDirection, "left");
         }
     }
 

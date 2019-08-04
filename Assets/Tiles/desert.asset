@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: desert
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: e448297d96ba3b445adfb2610e31d1a9, type: 3}
-  m_Color: {r: 0.27727836, g: 0.42423427, b: 0.8773585, a: 0.20392157}
+  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_Transform:
     e00: 1
     e01: 0
