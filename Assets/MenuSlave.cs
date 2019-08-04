@@ -25,6 +25,10 @@ public class MenuSlave : MonoBehaviour
                 eatshort.SetActive(true);
             }
         }
+        if (Input.GetButtonDown("restart"))
+        {
+            RestartLevel();
+        }
     }
 
     public void EndGame()
