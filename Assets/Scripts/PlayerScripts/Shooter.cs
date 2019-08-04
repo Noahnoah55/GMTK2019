@@ -12,13 +12,13 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        countenemies();
     }
 
 
@@ -52,6 +52,7 @@ public class Shooter : MonoBehaviour
                 {
                     collider.GetComponent<Enemy>().die(); // When you shoot enemy, he die
                     print("ded");
+                    Enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 }
             }
 
@@ -138,6 +139,10 @@ public class Shooter : MonoBehaviour
         Destroy(tempTrailObj,1f);
         Instantiate(BPickup,bulletPosition,Quaternion.identity);
 
+    }
+
+    public void countenemies()
+    {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         print(Enemies.Length);
     }

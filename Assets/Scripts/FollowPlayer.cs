@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
-    public float lerpt = .5f;
+    public float lerpt = .05f;
     // Start is called before the first frame update
     void Start()
     {

@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
-public class EndCondition : MonoBehaviour
+public class LevelChanger : MonoBehaviour
 {
-    public GameObject endscreen;
+    public string nextlevel;
     // Start is called before the first frame update
     void Start()
     {
-        //SceneManager.LoadScene("Level1");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Shooter>().Enemies.Length == 0)
-        {
-            endscreen.SetActive(true);
-        }
+        
+    }
+
+    public void changelevel()
+    {
+        SceneManager.LoadScene(nextlevel);
     }
 }
