@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3755290181831440806}
   - component: {fileID: 1735801874663730661}
   m_Layer: 0
-  m_Name: CurveRIghtDown
+  m_Name: CurveRightDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: df73bf3fec43b704f92f31f85e40d107, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a74c390153bdb4942a8a099c01385518, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
