@@ -27,4 +27,8 @@ public class Facer : MonoBehaviour
         if (direction == Vector2.left) {GetComponent<SpriteRenderer>().sprite = leftfacing;}
         if (direction == Vector2.right) {GetComponent<SpriteRenderer>().sprite = rightfacing;}
     }
+
+    public void rotateFace(Vector2 direction)
+    {
+    }
 }

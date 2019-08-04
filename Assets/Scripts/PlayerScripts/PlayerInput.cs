@@ -24,10 +24,17 @@ public class PlayerInput : MonoBehaviour
             }
             lastDirection = direction;
         }
-        if (Input.GetKeyDown("space"))
-        // TODO, change space to a button
+        if (Input.GetButtonDown("shoot"))
         {
             GetComponent<AmmoHolder>().fireGun(lastDirection);
+        }
+        if (Input.GetButtonDown("RotateRight"))
+        {
+            GetComponent<Facer>().rotateFace(direction);
+        }
+        if (Input.GetButtonDown("RotateLeft"))
+        {
+            GetComponent<Facer>().changeFace(direction);
         }
     }
 
