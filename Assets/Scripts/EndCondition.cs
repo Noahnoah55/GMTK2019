@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class EndCondition : MonoBehaviour
 {
+    bool screenshown = false;
     public GameObject endscreen;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,12 @@ public class EndCondition : MonoBehaviour
         if (GetComponent<Shooter>().Enemies.Length == 0)
         {
             endscreen.SetActive(true);
+            if (screenshown != true)
+            {
+                GetComponent<SoundManager>().playsound("victory");
+                print("win");
+                screenshown = true;
+            }
         }
     }
 }

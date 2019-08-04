@@ -47,11 +47,9 @@ public class Shooter : MonoBehaviour
             if (TileMover.checkSpace(bulletPosition + direction,"Enemy") != true)
             {
                 List<Collider2D> colliders = TileMover.getCollidersWithTag(bulletPosition+direction,"Enemy");
-                print("ded1");
                 foreach (Collider2D collider in colliders)
                 {
                     collider.GetComponent<Enemy>().die(); // When you shoot enemy, he die
-                    print("ded");
                     Enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 }
             }
@@ -144,6 +142,5 @@ public class Shooter : MonoBehaviour
     public void countenemies()
     {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        print(Enemies.Length);
     }
 }

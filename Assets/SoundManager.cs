@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject stepsound;
     public GameObject clapsound;
+    public GameObject yeehaw;
+    public AudioClip[] sounds;
     void Start()
     {
         
@@ -29,6 +31,10 @@ public class SoundManager : MonoBehaviour
         {
             clapsound.GetComponent<AudioSource>().pitch = Random.value + .5f;
             clapsound.GetComponent<AudioSource>().Play();
+        }
+        else if (sound == "victory")
+        {
+            yeehaw.GetComponent<AudioSource>().PlayOneShot(sounds[Random.Range(0,sounds.Length)]);
         }
     }
 }
