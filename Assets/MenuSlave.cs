@@ -34,7 +34,7 @@ public class MenuSlave : MonoBehaviour
 
     public void QuitToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void RestartLevel()
