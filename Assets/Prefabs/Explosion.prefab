@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440200744649624370}
   - component: {fileID: 9180232297633534808}
+  - component: {fileID: 451244600202349904}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 30411259ba8bf4d4cbb001eabf3f2732, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -77,6 +78,35 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &451244600202349904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155997480497175212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b74107912101442958ee919259b01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: eba3a6f7523349849a1e92db843e37a5, type: 3}
+  - {fileID: 21300000, guid: e4433926a014a6e49b1b785341afa5e7, type: 3}
+  - {fileID: 21300000, guid: a773fcbebab86804ea6ad14ec446ba8d, type: 3}
+  - {fileID: 21300000, guid: e2940800a3ac6784f80cf7b3b96fc043, type: 3}
+  - {fileID: 21300000, guid: f390ca8a96b1e2b479a93303528ae694, type: 3}
+  - {fileID: 21300000, guid: 2800a55ed07b07945a7778da62e2b896, type: 3}
+  - {fileID: 21300000, guid: 36de5062465eafd46aedad72e49ec780, type: 3}
+  - {fileID: 21300000, guid: 502868d623763464189076b0764e832f, type: 3}
+  - {fileID: 21300000, guid: 50f0686e5b5e55c43b6c7c54964423ef, type: 3}
+  - {fileID: 21300000, guid: 7e529939ff42d5a46b0aace52366a288, type: 3}
+  - {fileID: 21300000, guid: a580dc4307642f54da308c00cb1f2068, type: 3}
+  - {fileID: 21300000, guid: fa5863e46038dc2428bbc1ae497e838b, type: 3}
+  - {fileID: 21300000, guid: fbd222f7a2833f4478da21e4ce049310, type: 3}
+  - {fileID: 21300000, guid: 0a42f873d37aede4cb40c9a50fd35db9, type: 3}
+  - {fileID: 21300000, guid: 5bd2b847ca7e4da4a9592e36a132e3c6, type: 3}
+  - {fileID: 21300000, guid: be558ff43da4725499ccb7c554850ac9, type: 3}
